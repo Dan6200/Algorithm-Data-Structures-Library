@@ -1,0 +1,12 @@
+#include <iostream>
+#include "Graph.h"
+#include <vector>
+#include <memory>
+#include <algorithm>
+
+int main() {
+    std::vector<std::pair<int,int>> edges(5, {0,0});
+    std::unique_ptr<Graph> g = std::make_unique<Graph>(false, 5, 5, edges);
+    return 0;
+}
+
