@@ -1,4 +1,4 @@
-CC = g++
+CXX = g++
 CPPFLAGS = -g -std=c++17\
 			-Wall -Wextra\
 			-pedantic\
@@ -13,8 +13,7 @@ TARGET = ./main
 TARGET1 = ./GraphImp
 
 $(TARGET): $(TARGET).cpp
-$(TARGET1): $(TARGET1).cpp
-	$(CC) $(CFLAGS) $(INCLUDES) -o $(TARGET) $(TARGET1) $(TARGET).cpp
+	$(CXX) $(CPPFLAGS) $(INCLUDES) -o $(TARGET) $(TARGET).cpp $(TARGET1).cpp
 
 .PHONY: clean
 clean:

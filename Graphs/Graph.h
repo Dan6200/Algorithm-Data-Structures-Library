@@ -1,4 +1,6 @@
+#include <ostream>
 #include <vector>
+#include <algorithm>
 
 template<class T>
 class EdgeNode 
@@ -24,7 +26,7 @@ class Graph
     int nedges;
     EdgeNode<T>** edges;
     int* degree;
-    void initialize_graph(std::vector<std::pair<int,int>>);
+    void initialize_graph(std::vector<std::pair<int,int>>&);
     void initialize_graph();
 
 public:
@@ -35,7 +37,6 @@ public:
         } 
 
     ~Graph () {
-        // Free the memory allocated on the heap clear the Graph
         clear();
     }
 
@@ -44,7 +45,7 @@ public:
             initialize_graph();
         }
 
-    Graph (bool isDirect, int vertices, int edges, std::vector<std::pair<int,int>> edgeVals):
+    Graph (bool isDirect, int vertices, int edges, std::vector<std::pair<int,int>>& edgeVals):
         directed(isDirect), nvertices(vertices), nedges(edges) {
             initialize_graph(edgeVals);
         }
@@ -63,5 +64,5 @@ public:
 
     void insertEdge(int valA, int valB, bool directed);
 
-    template<typename U> friend std::ostream& operator<<(std::ostream& print, Graph<U>& graph);
+    template<class U> friend std::ostream& operator<<(std::ostream& print, Graph<U>& graph);
 };

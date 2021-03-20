@@ -1,21 +1,8 @@
+#include "Graph.h"
+#include <vector>
+#include <algorithm>
+#include <iostream>
 
-template<class T>
-class EdgeNode 
-{
-    T val;
-    int index;
-    int weight;
-	EdgeNode* next;
-public:
-    EdgeNode(T item):
-        val(item), index(0), weight(0), next(nullptr) {}
-    EdgeNode(T item, int i):
-        val(item), index(i), weight(0), next(nullptr) {}
-    EdgeNode(T item, int i, int w):
-        val(item), index(i), weight(w), next(nullptr) {}
-    EdgeNode(T item, int i, int w):
-        val(item), index(i), weight(w), next(nullptr) {}
-};
 template<class T>
 void initialize_graph() {
     degree = new int[nvertices];
@@ -26,7 +13,7 @@ void initialize_graph() {
 }
 
 template<class T>
-void initialize_graph(std::vector<std::pair<int,int>> edge) {
+void initialize_graph(std::vector<std::pair<int,int>>& edge) {
     initialize_graph();
     for(auto &[a,b]: edge) {
         insert_edge(a, b);
