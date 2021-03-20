@@ -8,10 +8,8 @@ CPPFLAGS = -g -std=c++17\
 
 TARGET = ./main
 
-TARGET1 = ./GraphImp
-
 $(TARGET): $(TARGET).cpp
-	$(CXX) $(CPPFLAGS)  -o $(TARGET) $(TARGET).cpp $(TARGET1).cpp
+	$(CXX) $(CPPFLAGS)  -o $(TARGET) $(TARGET).cpp
 
 .PHONY: clean
 clean:

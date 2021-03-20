@@ -1,6 +1,5 @@
-#include "Graph.h"
 #include <vector>
-#include <algorithm>
+#include <utility>
 #include <iostream>
 
 template<class T>
@@ -22,8 +21,8 @@ Graph<T>::Graph (bool isDirect):
 }
 
 template<class T>
-Graph<T>::Graph (bool isDirect, int vertices, int edges, std::vector<std::pair<int,int>>& edgeVals):
-directed(isDirect), nvertices(vertices), nedges(edges) {
+Graph<T>::Graph (bool isDirect, int vertices, int edge, std::vector<std::pair<int,int>>& edgeVals):
+directed(isDirect), nvertices(vertices), nedges(edge) {
     initialize_graph(edgeVals);
 }
 

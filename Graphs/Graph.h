@@ -1,6 +1,6 @@
 #include <ostream>
 #include <vector>
-#include <algorithm>
+#include <utility>
 
 template<class T>
 class EdgeNode 
@@ -44,3 +44,5 @@ public:
 
     template<class U> friend std::ostream& operator<<(std::ostream&, Graph<U>&);
 };
+
+#include "GraphImp.cpp"
