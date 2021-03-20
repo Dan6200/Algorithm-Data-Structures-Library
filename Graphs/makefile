@@ -6,14 +6,12 @@ CPPFLAGS = -g -std=c++17\
 			-fsanitize=signed-integer-overflow\
 			-fsanitize=undefined 
 
-INCLUDES = .
-
 TARGET = ./main
 
 TARGET1 = ./GraphImp
 
 $(TARGET): $(TARGET).cpp
-	$(CXX) $(CPPFLAGS) $(INCLUDES) -o $(TARGET) $(TARGET).cpp $(TARGET1).cpp
+	$(CXX) $(CPPFLAGS)  -o $(TARGET) $(TARGET).cpp $(TARGET1).cpp
 
 .PHONY: clean
 clean:

@@ -30,39 +30,17 @@ class Graph
     void initialize_graph();
 
 public:
-    Graph ():
-        directed(false), nvertices(0), nedges(0) {
-            // Initializes the graph setting the number of vertices, edges and degrees of each vertex to zero.
-            initialize_graph();
-        } 
+    Graph ();
 
-    ~Graph () {
-        clear();
-    }
+    ~Graph (); 
 
-    Graph (bool isDirect):
-        directed(isDirect), nvertices(0), nedges(0) {
-            initialize_graph();
-        }
+    Graph (bool); 
 
-    Graph (bool isDirect, int vertices, int edges, std::vector<std::pair<int,int>>& edgeVals):
-        directed(isDirect), nvertices(vertices), nedges(edges) {
-            initialize_graph(edgeVals);
-        }
+    Graph (bool, int, int, std::vector<std::pair<int,int>>&);
     
-    void clear() {
-        // Reset the graph...
-        delete [] degree;
-        for(int i=0; i<nedges; i++) {
-            delete edges[i];
-        }
-        delete [] edges;
-        directed=false;
-        nedges = 0;
-        nvertices = 0;
-    }
+    void clear(); 
 
-    void insertEdge(int valA, int valB, bool directed);
+    void insertEdge(int, int, bool);
 
-    template<class U> friend std::ostream& operator<<(std::ostream& print, Graph<U>& graph);
+    template<class U> friend std::ostream& operator<<(std::ostream&, Graph<U>&);
 };
