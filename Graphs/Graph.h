@@ -32,6 +32,8 @@ class Graph
 public:
     Graph ();
 
+    Graph (const Graph<T>&);
+
     ~Graph (); 
 
     Graph (bool); 

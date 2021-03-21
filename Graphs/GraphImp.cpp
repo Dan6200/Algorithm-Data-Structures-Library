@@ -1,7 +1,3 @@
-#include <vector>
-#include <utility>
-#include <iostream>
-
 template<class T>
 Graph<T>::Graph ():
     directed(false), nvertices(0), nedges(0) {
@@ -11,18 +7,19 @@ Graph<T>::Graph ():
 
 template<class T>
 Graph<T>::~Graph () {
+    // Call the clear function to delete entries and free the heap
     clear();
 }
 
 template<class T>
 Graph<T>::Graph (bool isDirect):
-    directed(isDirect), nvertices(0), nedges(0) {
+    directed(isDirect), nvertices(0), nedges(0), count(0) {
         initialize_graph();
 }
 
 template<class T>
 Graph<T>::Graph (bool isDirect, int vertices, int edge, std::vector<std::pair<int,int>>& edgeVals):
-directed(isDirect), nvertices(vertices), nedges(edge) {
+directed(isDirect), nvertices(vertices), nedges(edge), count(0) {
     initialize_graph(edgeVals);
 }
 
@@ -31,7 +28,8 @@ void Graph<T>::initialize_graph() {
     degree = new int[nvertices];
     for (int i=0; i<nvertices; i++) 
         degree[i] = 0;
-    for (int i=0; i<nvertices; i++) 
+    edges = new EdgNode<T>[nedges];
+    for (int i=0; i<nedges; i++) 
         edges[i] = nullptr;
 }
 
@@ -40,6 +38,7 @@ void Graph<T>::initialize_graph(std::vector<std::pair<int,int>>& edge) {
     initialize_graph();
     for(auto &[a,b]: edge) {
         insert_edge(a, b);
+        count++;
     }
 }
 
@@ -54,4 +53,5 @@ void Graph<T>::clear() {
     directed=false;
     nedges = 0;
     nvertices = 0;
+    count = 0;
 }
